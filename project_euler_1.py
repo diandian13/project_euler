@@ -1,6 +1,6 @@
 import numpy
 
-n = 9
+n = 1000
 n_5 = 5
 n_3 = 3
 num_5 = (n - n % n_5) / n_5
