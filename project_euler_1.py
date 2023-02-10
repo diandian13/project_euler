@@ -1,26 +1,32 @@
-n = 1000
-n_15 = 15
-n_5 = 5
-n_3 = 3
-num_5 = (n - n % n_5) / n_5
-num_3 = (n - n % n_3) / n_3
-num_15 = (n - n % n_15) / n_15
+n = 35
+def sum_inc(n , inc):
+    n_lower = n - 1
+    num = (n_lower - n_lower % inc) / inc
+    sum= inc * ((num) * ((num + 1) / 2))
+    return sum
 
-if n % n_15 == 0:
-    sum_15 = 15 * ((num_15 - 1) * (num_15 / 2))
-else:
-    sum_15 = 15 * ((num_15) * ((num_15 + 1) / 2))
+def total_sum(n):
+    print(sum_inc(n, 5) +sum_inc(n, 3)-sum_inc(n, 15) )
+    return sum_inc(n, 5) +sum_inc(n, 3)-sum_inc(n, 15)
 
-if n % n_5 == 0:
-    sum_5 = 5 * ((num_5 - 1) * (num_5 / 2))
-else:
-    sum_5 = 5 * ((num_5) * ((num_5 + 1) / 2))
+total_sum(n)
 
-if n % n_3 == 0:
-    sum_3 = 3 * ((num_3 - 1) * (num_3 / 2))
-else:
-    sum_3 = 3 * ((num_3) * ((num_3 + 1) / 2))
+### way number dos
+def smooth_sum(n):
+    smoothsum = 0
+    for i in range(n):
+        if i % 3 == 0:
+            smoothsum = smoothsum+ i
+        if i % 5 == 0:
+            smoothsum = smoothsum + i
+        if i % 15 == 0:
+            smoothsum = smoothsum - i
+    print(smoothsum)
+    return smoothsum
 
-print(sum_5+sum_3-sum_15)
+smooth_sum(n)
+
+
+
 
 
